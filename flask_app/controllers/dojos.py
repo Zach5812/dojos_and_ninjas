@@ -14,9 +14,8 @@ def index():
 @app.route('/dojo/<int:id>')
 def show(id):
     data = {'id': id}
-    dojo = Dojo.get_dojo(data)
-    ninjas = Ninja.get_one_with_ninjas(data)
-    return render_template('show.html', dojo = dojo, ninjas = ninjas)
+    dojo = Dojo.get_one_with_ninjas(id)
+    return render_template('show.html', dojo = dojo)
 
 #! CREATE
 @app.route('/create', methods=['post'])

@@ -16,6 +16,6 @@ def new_ninja():
             'dojo_id': request.form['dojo_id']
             }
     Ninja.save_ninja(data)
-    return redirect('/')
+    return redirect(f"/dojo/{request.form['dojo_id']}")
 
 

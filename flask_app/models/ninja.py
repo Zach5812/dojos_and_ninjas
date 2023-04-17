@@ -30,13 +30,13 @@ class Ninja:
         return connectToMySQL(DATABASE).query_db(query, data)
     
 
-    @classmethod
-    def get_one_with_ninjas(cls, data):
-        query = "SELECT * FROM ninjas WHERE dojo_id = %(id)s;"
-        results = connectToMySQL(DATABASE).query_db(query, data)
-        ninjas = []
-        for ninja in results:
-            ninjas.append(cls(ninja))
-        return ninjas
+    # @classmethod
+    # def get_one_with_ninjas(cls, data):
+    #     query = "SELECT * FROM ninjas WHERE dojo_id = %(id)s;"
+    #     results = connectToMySQL(DATABASE).query_db(query, data)
+    #     ninjas = []
+    #     for ninja in results:
+    #         ninjas.append(cls(ninja))
+    #     return ninjas
 
 

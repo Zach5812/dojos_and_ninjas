@@ -37,22 +37,22 @@ class Dojo:
         dojo = cls(result[0])
         return dojo
     
-        #! READ ONE
-    # @classmethod
-    # def get_one_with_ninjas(cls, id):
-    #     query = "SELECT * FROM dojos JOIN ninjas ON dojos.id = ninjas.dojo_id WHERE dojos.id = %(id)s;"
-    #     results = connectToMySQL(DATABASE).query_db(query, {'id': id})
-    #     dojo = cls(results[0])
-    #     for item in results:
-    #         temp_ninja = {
-    #             'id': item['ninjas.id'],
-    #             'first_name': item['first_name'],
-    #             'last_name': item['last_name'],
-    #             'age': item['age'],
-    #             'dojo_id': item['dojo_id'],
-    #             'created_at': item['ninjas.created_at'],
-    #             'updated_at': item['ninjas.updated_at'],
-    #         }
-    #         dojo.ninjas.append(Ninja(temp_ninja))
-    #     return dojo
+        # ! READ ONE
+    @classmethod
+    def get_one_with_ninjas(cls, id):
+        query = "SELECT * FROM dojos JOIN ninjas ON dojos.id = ninjas.dojo_id WHERE dojos.id = %(id)s;"
+        results = connectToMySQL(DATABASE).query_db(query, {'id': id})
+        dojo = cls(results[0])
+        for item in results:
+            temp_ninja = {
+                'id': item['ninjas.id'],
+                'first_name': item['first_name'],
+                'last_name': item['last_name'],
+                'age': item['age'],
+                'dojo_id': item['dojo_id'],
+                'created_at': item['ninjas.created_at'],
+                'updated_at': item['ninjas.updated_at']
+            }
+            dojo.ninjas.append(Ninja(temp_ninja))
+        return dojo
 
